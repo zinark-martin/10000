@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -124,7 +125,7 @@ public class MainActivity extends AppCompatActivity {
                         runOnUiThread(new Runnable() {
                             @Override
                             public void run() {
-                                mContentTextView.setText("hi!");
+                                mContentTextView.setText("failed!");
                             }
                         });
                     }
@@ -142,6 +143,7 @@ public class MainActivity extends AppCompatActivity {
         call.enqueue(new Callback() {
             @Override
             public void onFailure(@NotNull Call call, @NotNull IOException e) {
+                Toast.makeText(MainActivity.this, "无反应", Toast.LENGTH_SHORT).show();
             }
 
             @Override
