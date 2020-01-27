@@ -77,6 +77,9 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case R.id.menuPost:
                 post();
+                break;
+            default:
+                break;
         }
         return super.onOptionsItemSelected(item);
     }
@@ -117,17 +120,13 @@ public class MainActivity extends AppCompatActivity {
                     Response response = mclient.newCall(request).execute();
                     if (response.isSuccessful()) {
                         final String string = response.body().string();//body叫响应体
-                        runOnUiThread(new Runnable() {
-                            @Override
-                            public void run() { mContentTextView.setText(string); }
+                        runOnUiThread( ()-> { mContentTextView.setText(string);
                         });
                     } else {
-                        runOnUiThread(new Runnable() {
-                            @Override
-                            public void run() {
-                                mContentTextView.setText("failed!");
-                            }
-                        });
+                        runOnUiThread(()-> {
+                                    mContentTextView.setText("failed!");
+                                }
+                            );
                     }
             } catch (IOException e) {
                     e.printStackTrace();

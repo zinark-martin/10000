@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">DialogDemo</string>
+    <string name="buttonNormal">显示一个普通对话框</string>
+    <string name="customizeDialog">显示一个自定义对话框</string>
+    <string name="showWindow">显示弹窗</string>
+    <string name="dataAdapter">数据适配器对话框</string>
+    <string name="ask">真的要退出吗？</string>
+</resources>
