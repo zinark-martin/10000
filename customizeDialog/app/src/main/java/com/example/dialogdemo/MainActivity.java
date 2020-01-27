@@ -98,14 +98,19 @@ public class MainActivity extends AppCompatActivity {
         //参数1：用在弹窗中的View
         //参数2、3：弹窗的宽高
         //参数4（focusable）：能否获取焦点
-        final PopupWindow window = new PopupWindow(v,190,35,true);
+        final PopupWindow window = new PopupWindow(v,650,120,true);
 
         //2.设置（背景、动画）
         //设置背景
+        /**
+         * 实例化一个匿名ColorDrawable对象
+         * 类Color参数对应的是16进制int值, 也就是色号
+         * 当然也可以直接写, 本例中的对应是0, 也就是使用xml中设定好的
+         */
         window.setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-        //设置能响应外部的点击事件
+        //设置能响应外部的点击事件 比如按返回键退出窗口!
         window.setOutsideTouchable(true);
-        //设置能响应点击事件
+        //设置能响应点击事件 就是弹窗自己的点击事件
         window.setTouchable(true);
         //①创建动画资源   ②创建一个style应用动画资源    ③对当前弹窗的动画风格设置为第二部的资源索引
         window.setAnimationStyle(R.style.translate_anim);
@@ -116,6 +121,12 @@ public class MainActivity extends AppCompatActivity {
         window.showAsDropDown(view,-190,0);
 
         //为弹窗中的文本添加点击事件
+        /**
+         * 一定不要搞错了,视图是v也就是LayoutInflater创建的view
+         * 如果直接写findViewById就是大参数view的视图,逻辑就成了在主界面找弹窗的资源
+         * 会引发程序崩溃
+         * 另外点击完后需要调用dismiss方法使弹窗消失, 否则需要用户点击返回键或者空白区才能消失
+         * */
         v.findViewById(R.id.choose).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

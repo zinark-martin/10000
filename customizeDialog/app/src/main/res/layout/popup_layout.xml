@@ -4,7 +4,7 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
-    android:background="#00ffff"
+    android:background="#C1AB23DB"
     android:padding="2dp"
     >
 
@@ -20,7 +20,8 @@
     <View
         android:layout_width="2dp"
         android:layout_height="30dp"
-        android:background="#00ffff" />
+        android:background="#00000000" />
+    <!--间隔用的view-->
 
     <TextView
         android:id="@+id/choose_all"
@@ -34,7 +35,7 @@
     <View
         android:layout_width="2dp"
         android:layout_height="30dp"
-        android:background="#00ffff" />
+        android:background="#fff" />
 
     <TextView
         android:id="@+id/copy"
