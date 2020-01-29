@@ -7,4 +7,6 @@
         android:toYDelta="0"
         android:duration="2000"
         ></translate>
+        <!--全部传0 表示不改动位置
+        持续时间千万不能忘了-->
 </set>

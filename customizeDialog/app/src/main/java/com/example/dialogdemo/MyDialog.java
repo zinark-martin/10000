@@ -10,7 +10,6 @@ import androidx.annotation.NonNull;
 //3.所以实例化对话框的时候传两个参数: 上下文和R.style.xxx)
 
 public class MyDialog extends Dialog {
-
     public MyDialog(@NonNull final Context context, int themeResId) {
         //三个构造器, 选中的是参数为上下文和主题(styles.xml)的
         //带主题的对话框就不会有白背景了, 边角就会变成空白

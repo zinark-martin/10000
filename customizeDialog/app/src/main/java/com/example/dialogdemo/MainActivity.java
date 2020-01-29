@@ -55,6 +55,8 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case R.id.diy_dialog_btn:
                 MyDialog md = new MyDialog(this,R.style.mydialog);
+                //默认触摸对跨框外是可以取消对话框的, 设置为false后将只可以用返回键取消
+                md.setCanceledOnTouchOutside(false);
                 md.show();
                 break;
             case R.id.popup_btn:
@@ -73,20 +75,21 @@ public class MainActivity extends AppCompatActivity {
         //参数1：环境
         //参数2：布局资源索引，指的是每一项数据所呈现的样式android.R.layout.xxx
         //参数3：数据源
-//        ArrayAdapter adapter = new ArrayAdapter(this,android.R.layout.simple_dropdown_item_1line,items);
+//      ArrayAdapter adapter = new ArrayAdapter(this,android.R.layout.simple_drop down_item_1line,items);
         ArrayAdapter adapter = new ArrayAdapter(this,R.layout.array_item_layout,R.id.item_txt,items);
-        AlertDialog.Builder builer = new AlertDialog.Builder(this)
+        AlertDialog.Builder builder  = new AlertDialog.Builder(this)
                 .setTitle("请选择")
                 //参数1：适配器对象（对数据显示样式的规则制定器）
                 //参数2：监听器
                 .setAdapter(adapter, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        Toast.makeText(MainActivity.this,items[i],Toast.LENGTH_SHORT).show();
+                        Toast.makeText(MainActivity.this, items[i], Toast.LENGTH_SHORT).show();
                         dialogInterface.dismiss();
+
                     }
                 });
-        builer.show();
+        builder.show();
     }
 
     //设置PopupWindow
@@ -115,7 +118,7 @@ public class MainActivity extends AppCompatActivity {
         //①创建动画资源   ②创建一个style应用动画资源    ③对当前弹窗的动画风格设置为第二部的资源索引
         window.setAnimationStyle(R.style.translate_anim);
 
-        //3.显示
+        //3.显示在指定位置
         //参数1(anchor)：锚 即以谁为参照物进行显示 在这里是从点击事件传下来的"view",也就是按钮界面为参照显示弹窗
         //参数2、3：相对于锚在x、y方向上的偏移量
         window.showAsDropDown(view,-190,0);
