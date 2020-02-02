@@ -2,6 +2,7 @@ package com.animation.property;
 
 import android.animation.Animator;
 import android.animation.AnimatorInflater;
+import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.os.Bundle;
 import android.view.View;
@@ -60,7 +61,7 @@ public class PropertyActivity extends AppCompatActivity {
 //                moveAnimator.setDuration(1000);
 //
 //                AnimatorSet set = new AnimatorSet();
-////                set.playTogether(rotateAnimator, moveAnimator);
+//                set.playTogether(rotateAnimator, moveAnimator);
 //                set.playSequentially(rotateAnimator, moveAnimator);
 //                set.start();
 
