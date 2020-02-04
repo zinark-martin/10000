@@ -61,11 +61,11 @@ public class RevealActivity extends AppCompatActivity {
         //终点半径
         int r = (int) Math.hypot(w, h);
 
-        mView.setVisibility(View.VISIBLE);
         Animator animator = ViewAnimationUtils.createCircularReveal(mView, w/2, h/2, 0, r);
         animator.setDuration(3000);
-        //animator.start();
-
+        animator.start();
+        mView.setVisibility(View.VISIBLE);
+        //动画执行需要时间,而程序运行是一瞬间的,所以看上去谁先谁后一样,而且视图可见与否只决定显不显示出来
     }
 
     private void revealExit() {
@@ -80,15 +80,14 @@ public class RevealActivity extends AppCompatActivity {
         Animator animator = ViewAnimationUtils.createCircularReveal(mView, cx, cy, r, 0);
         animator.setDuration(2000);
 
-        /*animator.addListener(new AnimatorListenerAdapter() {
+        animator.addListener(new AnimatorListenerAdapter() {
             @Override
             public void onAnimationEnd(Animator animation) {
                 super.onAnimationEnd(animation);
                 mView.setVisibility(View.INVISIBLE);
             }
-        });*/
+        });
         animator.start();
-        //mView.setVisibility(View.INVISIBLE);
     }
 
 }
