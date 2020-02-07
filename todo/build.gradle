@@ -1,0 +1,61 @@
+plugins {
+    id 'java'
+    id 'war'
+    id 'maven-publish'
+}
+
+group 'com.learn.gradle'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}
+
+def createFile = {
+    path ->
+        File file = new File(path)
+        if (!file.exists())
+            file.mkdirs()
+}
+task mkJavaDirs() {
+    def paths = ['src/main/java', 'src/main/resources']
+    doFirst {
+        paths.forEach(createFile)
+    }
+}
+//创建一个任务依赖上面的任务 运行后可见先运行了上面的task
+task mkWebDirs() {
+    dependsOn 'mkJavaDirs'
+    def paths = ['src/main/web','src/main/web/webapp']
+    doLast {
+        paths.forEach(createFile)
+    }
+}
+publishing {
+    publications() {
+        //发布包
+        myPublish(MavenPublication) {
+            from components.java
+        }
+        herPublish(MavenPublication) {
+            from components.java
+        }
+    }
+    repositories {
+        //仓库
+        maven {
+            name "github"
+            url"xxx"
+        }
+        maven {
+            name "pornhub"
+            url "xxx"
+        }
+    }
+}

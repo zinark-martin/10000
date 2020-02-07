@@ -101,7 +101,9 @@ public class MainActivity extends AppCompatActivity {
         //参数1：用在弹窗中的View
         //参数2、3：弹窗的宽高
         //参数4（focusable）：能否获取焦点
-        final PopupWindow window = new PopupWindow(v,650,120,true);
+        int width = v.getWidth();
+        int height = v.getHeight();
+        final PopupWindow window = new PopupWindow(v,width,height,true);
 
         //2.设置（背景、动画）
         //设置背景
