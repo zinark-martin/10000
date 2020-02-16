@@ -15,7 +15,6 @@ import android.view.View;
 
 public class RoundProgressBar extends View
 {
-
     private int mRadius;
     private int mColor;
     private int mLineWidth;
@@ -31,10 +30,10 @@ public class RoundProgressBar extends View
 
         TypedArray ta = context.obtainStyledAttributes(attrs, R.styleable.RoundProgressBar);
 
-        mRadius = (int) ta.getDimension(R.styleable.RoundProgressBar_radius, dp2px(30));
+        mRadius = (int) ta.getDimension(R.styleable.RoundProgressBar_radius, dpTOpx(30));
         mColor = ta.getColor(R.styleable.RoundProgressBar_color, 0xffff0000);
-        mLineWidth = (int) ta.getDimension(R.styleable.RoundProgressBar_line_width, dp2px(3));
-        mTextSize = (int) ta.getDimension(R.styleable.RoundProgressBar_android_textSize, dp2px(36));
+        mLineWidth = (int) ta.getDimension(R.styleable.RoundProgressBar_line_width, dpTOpx(3));
+        mTextSize = (int) ta.getDimension(R.styleable.RoundProgressBar_android_textSize, dpTOpx(36));
         mProgress = ta.getInt(R.styleable.RoundProgressBar_android_progress, 30);
 
         ta.recycle();
@@ -42,7 +41,7 @@ public class RoundProgressBar extends View
         initPaint();
     }
 
-    private float dp2px(int dpVal)
+    private float dpTOpx(int dpVal)
     {
         return TypedValue.applyDimension(
                 TypedValue.COMPLEX_UNIT_DIP, dpVal, getResources().getDisplayMetrics());
@@ -137,11 +136,11 @@ public class RoundProgressBar extends View
         canvas.save();
         canvas.translate(getPaddingLeft(), getPaddingTop());
         float angle = mProgress * 1.0f / 100 * 360;
-        canvas.drawArc(new RectF(0, 0, width - getPaddingLeft() * 2, height - getPaddingLeft() * 2), 0, angle, false, mPaint);
+        canvas.drawArc(new RectF(0, 0, width - getPaddingLeft() * 2
+                , height - getPaddingLeft() * 2), 0, angle, false, mPaint);
         canvas.restore();
 
         String text = mProgress + "%";
-//        text = "张鸿洋";
         mPaint.setStrokeWidth(0);
         mPaint.setTextAlign(Paint.Align.CENTER);
         mPaint.setTextSize(mTextSize);

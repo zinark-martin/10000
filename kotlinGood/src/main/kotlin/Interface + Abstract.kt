@@ -43,5 +43,14 @@ fun main(args: Array<String>) {
     val computer = Computer()
     val mouse = USBMouse("microsoft")
     computer.addInputDevice(mouse)
+    //静态函数
+    var abc = minOf(4,5)
+    var list:List<Int> = arrayListOf(1,3,4,5,6)
+    var b = listOf<Int>(1234)
+    val list2 = ArrayList<Int>()
+    list2.add(2,3)
+    //kotlin提供两种新的remove方式, 以下实现的是同一效果 
+    list2.remove(3)
+    list2.removeAt(2)
 }
 //先判断device类型, 根据类型调用对应的inputDevice的方法
