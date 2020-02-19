@@ -1,8 +1,8 @@
 
 private val intArray: IntArray = intArrayOf(1,2,3)
-private val array: Array<Int> = arrayOf(1,2,3)
-private val charArray: CharArray = charArrayOf('h','e','l','l','o')
 //尽量用具体类型的数组, 这样可以避免装箱和开箱的开销
+private val charArray: CharArray = charArrayOf('h','e','l','l','o')
+private val array: Array<Int> = arrayOf(1,2,3)
 
 fun main(args: Array<String>) {
     println(charArray)

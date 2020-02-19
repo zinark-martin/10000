@@ -2,21 +2,10 @@ fun main(args: Array<String>) {
     for ((index, value) in args.withIndex()){
         println("$index -> $value")
     }
-    var x = 5
-    while (x > 0) {
-        println(x)
-        x--
-    }
-    do {
-        println()
-        x--
-    }while (x > 0)
-
     //for的三个不同的写法或方法
     args.forEach { println(it) }
     args.forEach (::println)
     args.forEach FE@{
-        //相识C语言的goto关键字
         if (it == "4") return@FE
         println(it)
     }
@@ -30,5 +19,7 @@ fun main(args: Array<String>) {
             if (loop == 5) break@outer
         }
     }
-
+    repeat(5) {
+        println("repeat")
+    }
 }

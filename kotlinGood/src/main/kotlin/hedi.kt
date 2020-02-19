@@ -47,7 +47,7 @@ open class Human (private var character:String, voice:String, private var appear
 
 fun main() {
     val girl = Girl("沙雕","putz","动人")
-    val mine: Girl = Girl("温柔勇敢", "动听", "动人")//相当于new对象
+    val mine: Girl = Girl("温柔", "动听", "动人")//相当于new对象
     val his: Woman = Woman("ok", "ok", "ok")
     val human:Human = Human("1","2","3")
     val kick2 = Kick2("测试继承")

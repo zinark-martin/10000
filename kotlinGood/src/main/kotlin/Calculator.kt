@@ -10,6 +10,7 @@ fun main(args: Array<String1>) {
             val input = readLine() ?: break
             val splits = input.trim().split(" ")
             if (splits.size < 3) {
+                //相当于自定义抛出异常信息, 在E.message中
                 throw IllegalArgumentException("数位不够. 没有使用空格分割?")
             }
             val arg1 = splits[0].toDouble()
@@ -18,6 +19,9 @@ fun main(args: Array<String1>) {
             //println("$arg1 $op $arg2 = ${Calculator(op).opFun(arg1, arg2)}") 相当于调用并输出opFun的值
             //重新定义class的操作符"invoke"后:
             println("$arg1 $op $arg2 = ${Calculator(op)(arg1, arg2)}")
+            val cal = Calculator(op) //创建对象的写法
+            println(cal(arg1,arg2))
+            
             println("是否继续运算?[Y]")
             val cmd = readLine()
             if (cmd != "y" || cmd.toLowerCase() != "y") {
@@ -29,6 +33,7 @@ fun main(args: Array<String1>) {
             //println("! 请输入使用空格分割的三个参数")
             //这里的内容会覆盖掉throw的内容, 若想现实throw的内容就输出E.message
             println(E.message)
+
         } catch (E:Exception) {
             println("! 程序出现异常 ${E.message}")
         }
@@ -38,16 +43,22 @@ fun main(args: Array<String1>) {
 //先传经来op
 class Calculator(op: String1) {
     //属性先不动 没有初始化
-    val opFun: (left: Double, right: Double) -> Double
-    //根据类的参数op和opFun的参数初始化opFun属性, lambda表达式里面的字母只是代表第1,2个参数, 所以填什么都一样
+    val opFun : (left: Double, right: Double) -> Double
+    val opFun2: (int:Int) -> Int
+    //lambda 表达式参数填什么都可以,只要位数和位置正确对应,编译器会自动判断
     init {
         opFun = when(op){
-            "+" -> {a,b -> a + b}//你填什么都可以
+            "+" -> {x,y -> x + y}//你填什么都可以
             "-" -> {l,r -> l - r}
             "*" -> {l,r -> l * r}
             "/" -> {l,r -> l / r}
             "%" -> {l,r -> l % r}
             else -> throw UnsupportedOperationException("符号 $op 超出运算支持范围")
+        }
+        opFun2 = if (true) {
+            {x -> x.toInt() + 2}
+        } else {
+            {7}
         }
     }
     //println("$arg1 $op $arg2 = ${Calculator(op).opFun(arg1, arg2)}") 使用".opFun"时可以不用以下内容
