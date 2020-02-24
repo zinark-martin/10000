@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <!--group在这里统一给定了item一些性质 比如可选勾且只能一次-->
+    <group
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/age"
+            android:icon="@drawable/birthday"
+            android:title="20"/>
+        <item
+            android:id="@+id/name"
+            android:icon="@drawable/name"
+            android:title="尹月"/>
+    </group>
+
+</menu>

@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
-   /* public void showNormalDialog(){
+    /* public void showNormalDialog(){
         AlertDialog dialog = new AlertDialog.Builder(this).create();
         dialog.setTitle("提示");
         dialog.setMessage("您确定退出程序吗？");
