@@ -11,6 +11,9 @@ sourceCompatibility = 1.8
 repositories {
     mavenCentral()
 }
+sourceSets{
+    main.java.srcDirs += "javaout"
+}
 
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
