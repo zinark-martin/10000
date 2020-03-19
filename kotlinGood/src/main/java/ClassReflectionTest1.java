@@ -1,9 +1,9 @@
 import java.lang.reflect.Field;
-import java.lang.reflect.InvocationTargetException;
+
 import java.lang.reflect.Modifier;
 
 public class ClassReflectionTest1 {
-    public static void main(String[] args) throws NoSuchMethodException, IllegalAccessException, InvocationTargetException, InstantiationException, NoSuchFieldException {
+    public static void main(String[] args) throws  NoSuchFieldException {
         Integer n = 123;
 //        boolean b1 = n instanceof Integer;
 //        boolean b2 = n.getClass() == Integer.class;
@@ -16,6 +16,6 @@ public class ClassReflectionTest1 {
         Field f = String.class.getDeclaredField("value");
         int m = f.getModifiers();
         System.out.println(m);
-        System.out.println(Modifier.isNative(18));
+        System.out.println(Modifier.isNative(m));
     }
 }
