@@ -7,9 +7,8 @@ package leetcode
 
 fun merge(nums1: IntArray, m: Int, nums2: IntArray, n: Int): Unit {
     var j = 0
-    System.arraycopy(nums2, 3, nums1, 3, 2)
-    //for (i in m until m + nums2.size) nums1[i] = nums2[j++]
-    println(nums1.joinToString())
+    //System.arraycopy(nums2, 3, nums1, 3, 2)
+    for (i in m until m + nums2.size) nums1[i] = nums2[j++]
 }
 fun main() {
     val nums1 = intArrayOf(1, 2, 4, 5, 6, 7, 8,0,0,0,0,0,0)
