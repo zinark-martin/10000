@@ -20,14 +20,14 @@ public class classReflectionTest2 {
         test te = test.class.getDeclaredConstructor(int.class).newInstance(123);
 
         Class cls1 = Class.forName("java.lang.String");
-        Class cls2 = String.class;
-        Class cls3 = "".getClass();
+        Class<String> cls2 = String.class;
+        Class<? extends String> cls3 = "".getClass();
         //以上三种是一个Class实例, 因为JVM对每个加载的Class只创建一个Class实例表示它的类型
         boolean is1 = cls1 == cls2;
         boolean is2 = cls2 == cls3;
         System.out.println(is2);
         System.out.println(is1);
-        Class cls4 = Integer.valueOf(9).getClass();
+        Class<? extends Integer> cls4 = Integer.valueOf(9).getClass();
         Class cls5 = cls4.getSuperclass();
         Class cls6 = cls5.getSuperclass();
         System.out.println(cls4);//Integer

@@ -9,9 +9,9 @@ public class ClassReflectionTest1 {
 //        boolean b2 = n.getClass() == Integer.class;
 //        boolean b3 = n.getClass() == Number.class;
         String str = "Hello";
-        System.out.println("信息" + n.getClass());
+        System.out.println("??" + n.getClass());
         Class IntClass = n.getClass();
-        //IntClass.getDeclaredField("它的成员变量");
+        //IntClass.getDeclaredField("??????");
         //Integer int1 = (Integer) IntClass.getDeclaredConstructor().newInstance();
         Field f = String.class.getDeclaredField("value");
         int m = f.getModifiers();
