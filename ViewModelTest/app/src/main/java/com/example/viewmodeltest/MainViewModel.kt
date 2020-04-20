@@ -5,11 +5,10 @@ import androidx.lifecycle.*
 class MainViewModel(countResume: Int) : ViewModel() {
 
     private val userIdLiveData = MutableLiveData<String>()
-    //userIdLiveData是string, 在switch中作为参数userId传入
-    //switchMap观察userIdLiveData
+    //userIdLiveData是在switch中作为参数传入的(只能是LiveData
     val user: LiveData<User>
             = Transformations.switchMap(userIdLiveData) { userId ->
-        Repository.getUser(userId)
+        Repository.getUser(userId)//通过方法获取的LiveData对象
     }
 
     //标准写法 封装值
