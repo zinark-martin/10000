@@ -5,6 +5,8 @@ import androidx.room.*
 @Dao//必须加注解Room才会将这个接口识别为一个Dao
 interface UserDao {
     //下面是常用的增删改查
+
+    //返回主键id值
     @Insert
     fun insertUser(user: User): Long
 

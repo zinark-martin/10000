@@ -6,7 +6,7 @@ public class ClassReflectionTest1 {
     public static void main(String[] args) throws  NoSuchFieldException {
         Integer n = 123;
 //        boolean b1 = n instanceof Integer;
-//        boolean b2 = n.getClass() == Integer.class;
+        boolean b2 = n.getClass() == Integer.class;
 //        boolean b3 = n.getClass() == Number.class;
         String str = "Hello";
         System.out.println("??" + n.getClass());

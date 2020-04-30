@@ -30,8 +30,7 @@ class MainViewModel(countResume: Int) : ViewModel() {
     fun plusOne() {
         val count = counterPrivate.value ?: 0
         counterPrivate.value = count + 1
-        //或者
-        // counter.value = counter.value?.plus(1)
+        //或者: counter.value = counter.value?.plus(1)
     }
 
     fun clear() {

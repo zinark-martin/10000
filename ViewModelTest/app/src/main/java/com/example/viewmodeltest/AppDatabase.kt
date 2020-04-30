@@ -4,26 +4,29 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import java.security.AccessControlContext
+
 
 @Database(version = 1, entities = [User::class])
+
 //必须继承自RoomDatabase
 abstract class AppDatabase : RoomDatabase() {
     abstract fun userDao(): UserDao
 
     companion object {
-        private var instance: AppDatabase? = null
+        private var theInstance: AppDatabase? = null
 
-        @Synchronized
+        @Synchronized //保证单例模式的线程安全
         fun getDatabase(context: Context): AppDatabase {
-            instance?.let {
+            // "?." 表示object不为null的条件下，才会去执行let函数体
+            theInstance?.let {
                 return it
             }
-            return Room.databaseBuilder(context.applicationContext,
-            AppDatabase::class.java, "app_database").build().apply {
-                instance = this
-            }
+            //返回Room ...build 并将其引用赋给instance
+            return Room.databaseBuilder(context.applicationContext
+                    , AppDatabase::class.java, "app_database").build()
+                .apply {
+                    theInstance = this
+                }
         }
     }
-
 }
