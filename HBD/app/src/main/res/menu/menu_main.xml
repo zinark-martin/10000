@@ -1,0 +1,11 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.example.retrofitrxjavademo.MainActivity">
+    <item
+        android:id="@+id/greetings"
+        android:orderInCategory="100"
+        android:title="一句问候"
+        app:showAsAction="never"
+        />
+</menu>
