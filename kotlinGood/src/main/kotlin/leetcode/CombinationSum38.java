@@ -1,5 +1,6 @@
 package leetcode;
 
+import java.lang.reflect.Array;
 import java.util.*;
 
 class Solution38 {
@@ -29,6 +30,15 @@ class Solution38 {
             //往下一层,参数中只变动了left和path
             dfs(candidates, len, left - candidates[i], i, path, res);
             path.removeLast();//回退一层,继续横向遍历
+        }
+    }
+    public void rotate(int[][] matrix) {
+        int[][] matrix1 = matrix;
+        int n = matrix1.length;
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                matrix[i][j] = matrix1[n - 1][j];
+            }
         }
     }
 }

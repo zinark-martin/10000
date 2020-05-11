@@ -5,14 +5,12 @@ import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.view.View
 import androidx.core.content.edit
 import kotlinx.android.synthetic.main.activity_main.*
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.work.OneTimeWorkRequest
 import androidx.work.WorkManager
-import java.lang.Math.random
 import java.util.concurrent.TimeUnit
 import kotlin.concurrent.thread
 
@@ -80,13 +78,14 @@ class MainActivity : AppCompatActivity() {
             mainViewModel.setUserId(userId)
         }
         //LiveData对象可以在调用这个方法来观察数据的变化, 实现实时数据传递
-        mainViewModel.counter.observe(this) { count ->
+        mainViewModel.counter.observe(this, Observer { count ->
             counting.text = count.toString()
-        }
-        mainViewModel.user.observe(this, Observer { user ->
-            val text = user.firstName + "_${user.lastName}" + " age: ${user.age}"
+        }) 
+        //Observer可以不写, block可以挪到括号外面
+        mainViewModel.user.observe(this) { user ->
+            val text = user.firstName + ": ${user.lastName}" + " age: ${user.age}"
             counting.text = text
-        })
+        }
     }
 
     //重写onPause使在每一次退出前都保存数据进sp
