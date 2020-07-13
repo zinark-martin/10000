@@ -1,8 +1,12 @@
 package com.imooc.transitionanimation;
 
+import android.app.ActivityOptions;
 import android.content.Intent;
 
 import android.os.Bundle;
+import android.transition.Explode;
+import android.transition.Transition;
+import android.util.Pair;
 import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -28,7 +32,15 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(this, SceneActivity.class));
                 break;
             case R.id.btnActivity:
-                startActivity(new Intent(this, FirstActivity.class));
+                Transition explode = new Explode();
+                getWindow().setExitTransition(explode);
+                getWindow().setReenterTransition(explode);
+                getWindow().setSharedElementEnterTransition(explode);
+                Pair<View, String> shareElement = Pair.create(view, "img");
+                ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(this, shareElement);
+                startActivity(new Intent(this, FirstActivity.class), options.toBundle());
+                break;
+            default :
                 break;
         }
     }

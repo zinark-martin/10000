@@ -14,7 +14,7 @@ class Solution38 {
         return res;
     }
 
-    private void dfs(int[] candidates,int len, int left
+    private void dfs(int[] candidates, int len, int left
             , int begin, Deque<Integer> path, List<List<Integer>> res) {
         if (left == 0) {
             // 由于 path 全局只使用一份，到叶子结点的时候需要做一个拷贝
@@ -32,6 +32,7 @@ class Solution38 {
             path.removeLast();//回退一层,继续横向遍历
         }
     }
+
     public void rotate(int[][] matrix) {
         int[][] matrix1 = matrix;
         int n = matrix1.length;

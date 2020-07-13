@@ -1,8 +1,8 @@
 package com.imooc.transitionanimation.reveal;
 
+
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
-
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -33,6 +33,8 @@ public class RevealActivity extends AppCompatActivity {
         switch (view.getId()) {
             case R.id.buttonChangeVisibility:
                 handleChangeVisibility(playAnimation);
+                break;
+            default:
                 break;
         }
     }

@@ -1,6 +1,8 @@
 //import okio.ByteString.Companion.decodeBase64
 //import okio.ByteString.Companion.encodeUtf8
 //import okio.ByteString.Companion.readByteString
+//import okio.ByteString.decodeBase64
+//import okio.ByteString.encodeUtf8
 //import java.io.FileInputStream
 //import java.io.FileOutputStream
 //
@@ -9,16 +11,16 @@
 //sha1和md5都是不可逆向的把数据转换成十六进制码,可用于校验数据是否匹配
 //ByteString中提供了方法可以将base64解码或将数据转换成以上的形式"*/
 //
-//fun main() {
+//fun leetcode.main() {
 //    val str = "this is a string"
 //    println(str.length)
-//    val byteString= str.encodeUtf8()
+//    val byteString= encodeUtf8(str)
 //    println(byteString)
 //    val str2 = byteString.base64()
 //    println(str2)
 //    val md5 = byteString.md5()
 //    println(md5.base64())
-//    println("YWJj".decodeBase64())
+//    println(decodeBase64("YWJj"))
 //    println(byteString.sha1().hex())
 //
 //

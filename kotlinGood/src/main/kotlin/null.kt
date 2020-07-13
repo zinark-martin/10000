@@ -1,7 +1,7 @@
 @file:Suppress("CAST_NEVER_SUCCEEDS")
 
 fun getName():String? {
-    return null;
+    return null
 }
 fun main(args: Array<String>) {
     val testVal: String? = "测试"

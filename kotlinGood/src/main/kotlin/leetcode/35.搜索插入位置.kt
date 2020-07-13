@@ -1,4 +1,7 @@
 package leetcode
+
+import java.util.*
+import java.util.Scanner
 /** 先判断清楚两种情况 找到和找不到, 找到就返回当前下标
 *   找不到又分最小, 最大, 和中间
 *   三种找不到其实可以套用一种模式, 就是先默认最小,var point = 0

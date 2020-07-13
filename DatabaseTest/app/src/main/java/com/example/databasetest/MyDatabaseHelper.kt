@@ -7,6 +7,7 @@ import android.widget.Toast
 import androidx.work.CoroutineWorker
 import androidx.work.WorkerParameters
 import kotlinx.coroutines.*
+import java.util.logging.Handler
 import kotlin.concurrent.thread
 
 class MyDatabaseHelper(val context: Context, name: String, version: Int): SQLiteOpenHelper(context, name, null, version) {

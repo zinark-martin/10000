@@ -5,9 +5,12 @@ import java.lang.reflect.Modifier;
 public class ClassReflectionTest1 {
     public static void main(String[] args) throws  NoSuchFieldException {
         Integer n = 123;
-//        boolean b1 = n instanceof Integer;
-        boolean b2 = n.getClass() == Integer.class;
-//        boolean b3 = n.getClass() == Number.class;
+        boolean b1 = n instanceof Integer;//true
+        System.out.println(true);
+        boolean b2 = n.getClass() == Integer.class;//true
+        System.out.println(true);
+        //boolean b3 = n.getClass() == Number.class;//false
+        System.out.println(false);
         String str = "Hello";
         System.out.println("??" + n.getClass());
         Class IntClass = n.getClass();

@@ -19,6 +19,7 @@ fun main(args: Array<String1>) {
             //println("$arg1 $op $arg2 = ${Calculator(op).opFun(arg1, arg2)}") 相当于调用并输出opFun的值
             //重新定义class的操作符"invoke"后:
             println("$arg1 $op $arg2 = ${Calculator(op)(arg1, arg2)}")
+            //println(Calculator(op).opFun(arg1, arg2)) //这是原始写法
             val cal = Calculator(op) //创建对象的写法
             println(cal(arg1,arg2))
             
@@ -44,8 +45,7 @@ fun main(args: Array<String1>) {
 class Calculator(op: String1) {
     //属性先不动 没有初始化
     val opFun : (left: Double, right: Double) -> Double
-    val opFun2: (int:Int) -> Int
-    //lambda 表达式参数填什么都可以,只要位数和位置正确对应,编译器会自动判断
+    private val opFun2: (int:Int) -> Int
     init {
         opFun = when(op){
             "+" -> {x,y -> x + y}//你填什么都可以
@@ -56,7 +56,7 @@ class Calculator(op: String1) {
             else -> throw UnsupportedOperationException("符号 $op 超出运算支持范围")
         }
         opFun2 = if (true) {
-            {x -> x.toInt() + 2}
+            {x -> x + 2}
         } else {
             {7}
         }

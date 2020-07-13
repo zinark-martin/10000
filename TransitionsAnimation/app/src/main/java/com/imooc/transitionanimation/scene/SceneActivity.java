@@ -42,6 +42,7 @@ public class SceneActivity extends AppCompatActivity {
             case R.id.btnClose:
                 TransitionManager.go(mOverViewScene);
                 break;
+            default :
         }
     }
 

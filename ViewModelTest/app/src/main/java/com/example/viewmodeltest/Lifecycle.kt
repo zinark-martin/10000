@@ -1,5 +1,6 @@
 package com.example.viewmodeltest
 
+import android.os.Bundle
 import android.util.Log
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleObserver

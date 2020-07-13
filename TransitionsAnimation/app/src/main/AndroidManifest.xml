@@ -15,7 +15,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".reveal.RevealActivity" android:label="Reveal"/>
+        <activity android:name=".reveal.RevealActivity">
+        </activity>
         <activity android:name=".scene.SceneActivity" android:label="Scene"/>
         <activity android:name=".activity.FirstActivity" android:label="FirstActivity"/>
         <activity android:name=".activity.SecondActivity" android:label="SecondActivity"/>

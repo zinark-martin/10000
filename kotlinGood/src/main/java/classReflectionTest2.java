@@ -14,7 +14,8 @@ public class classReflectionTest2 {
 
         System.out.println(Integer.parseInt("123"));//This is a static method
         Method method3 = Integer.class.getDeclaredMethod("parseInt", String.class);
-        Integer parsed = (Integer) method3.invoke(null,"23452");//静态方法无参 第一个参数为null
+        Integer parsed = (Integer) method3.invoke(null,"23452");
+        //A static method doesn't have any parameters, so 'null' for the first parameter here
         System.out.println(parsed);
         test te1 = new test(123);
         test te = test.class.getDeclaredConstructor(int.class).newInstance(123);
@@ -44,5 +45,6 @@ class test {
     public test(int in) {
         System.out.println(in);
     }
-    interface inter {}
+    interface inter {
+    }
 }

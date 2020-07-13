@@ -1,11 +1,5 @@
 package leetcode
 
-import okhttp3.OkHttpClient
-import okhttp3.Request
-import okhttp3.Response
-import java.io.IOException
-
-
 fun rotate5(matrix: Array<IntArray>): Unit {
     val n = matrix.size - 1
     //首先只写等号只表示引用对象
@@ -31,32 +25,6 @@ private fun rotate(matrix: Array<IntArray>) {
     for (i in matrix.indices) {
         for (j in matrix.indices) {
             matrix[i][j] = help[i][j]
-        }
-    }
-}
-
-
-internal class NetworkTest {
-    var ok = OkHttpClient()
-    private var request = Request.Builder().url("https://www.jianshu.com/p/e740196225a4").build()
-    var result: Response? = null
-    var res: String? = null
-
-    companion object {
-        @JvmStatic
-        fun main(args: Array<String>) {
-            val test = NetworkTest()
-            println(test.res)
-        }
-    }
-
-    init {
-        try {
-            result = ok.newCall(request).execute()
-            assert(result?.body() != null)
-            res = result?.body()!!.string()
-        } catch (e: IOException) {
-            e.printStackTrace()
         }
     }
 }

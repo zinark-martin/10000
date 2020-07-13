@@ -33,6 +33,7 @@ public class ViewAnimationActivity extends AppCompatActivity {
             case R.id.renew:
                 recreate();
                 break;
+            default :
         }
         return super.onOptionsItemSelected(item);
     }
@@ -40,16 +41,13 @@ public class ViewAnimationActivity extends AppCompatActivity {
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.viewAlphaAnimation:
-                Animation alphaAnimation = AnimationUtils.loadAnimation(this, R.anim.alpha);
-                view.startAnimation(alphaAnimation);
+                view.startAnimation(AnimationUtils.loadAnimation(this, R.anim.alpha));
                 break;
             case R.id.viewScaleAnimation:
-                Animation scaleAnimation = AnimationUtils.loadAnimation(this, R.anim.scale);
-                view.startAnimation(scaleAnimation);
+                view.startAnimation(AnimationUtils.loadAnimation(this, R.anim.scale));
                 break;
             case R.id.viewTranslateAnimation:
-                Animation translateAnimation = AnimationUtils.loadAnimation(this, R.anim.translate);
-                view.startAnimation(translateAnimation);
+                view.startAnimation(AnimationUtils.loadAnimation(this, R.anim.translate));
                 break;
             case R.id.viewRotateAnimation:
                 Animation rotateAnimation = AnimationUtils.loadAnimation(this, R.anim.rotate);
@@ -71,8 +69,8 @@ public class ViewAnimationActivity extends AppCompatActivity {
 
                 viewLinear.startAnimation(animationLinear);
                 viewAccelerate.startAnimation(animationAccelerate);
-
                 break;
+            default :
         }
     }
 }

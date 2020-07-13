@@ -9,6 +9,7 @@ import android.os.Bundle
 import android.provider.ContactsContract
 
 import android.provider.ContactsContract.CommonDataKinds.*
+import android.view.ViewGroup
 
 
 import android.widget.ArrayAdapter
@@ -25,11 +26,18 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        Toast.makeText(this,"你好, 已Create",Toast.LENGTH_SHORT).show()
         setContentView(R.layout.activity_main)
         MyAdapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, contactsList)
         contactsView.adapter = MyAdapter
         doCall()
         doQuery()
+        var params: ViewGroup.MarginLayoutParams = Call.layoutParams as ViewGroup.MarginLayoutParams
+        params.height += 600
+        params.width += 500
+        Call.requestLayout()
+        //或者Call.setLayoutParams(params)
+
     }
 
     private fun doQuery() {
