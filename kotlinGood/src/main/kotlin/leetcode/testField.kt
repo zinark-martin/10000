@@ -6,7 +6,7 @@ import java.util.*
 import kotlin.collections.HashMap
 
 
-//fun leetcode.main(args: Array<String>) {
+//fun leetcode.Coroutines.main(args: Array<String>) {
 //    val array = Array<Int>(5) { i -> i*i}
 //    var muMap = mutableMapOf<Char, Int>('j' to 2)
 //    var int = muMap['j']

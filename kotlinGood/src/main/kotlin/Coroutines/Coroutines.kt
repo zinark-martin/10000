@@ -1,3 +1,5 @@
+package Coroutines
+
 import kotlinx.coroutines.*
 import java.util.concurrent.Executors
 import java.util.concurrent.TimeUnit
@@ -7,7 +9,7 @@ fun main() {
     ml.clear()
     //val thread = mutableListOf<Thread>()
     var i = 0
-//挂起就是可以自动切回来的切线程
+   //挂起就是可以自动切回来的切线程
     val timeStart = System.currentTimeMillis()
     runBlocking {
         println("${System.currentTimeMillis() - timeStart}")
@@ -19,7 +21,7 @@ fun main() {
                 println("结束delay ${System.currentTimeMillis() - timeStart}")
             }
             5 + 18
-        }.await()
+        }
 
         val def2 = async(Dispatchers.IO){
             println("开始delay2 ${System.currentTimeMillis() - timeStart}")
@@ -41,7 +43,7 @@ fun main() {
         println("测试先后顺序开始")
         Thread.sleep(100)
         println("测试先后顺序结束")
-        //println("${d1(timeStart).await() + d2(timeStart).await()} ${System.currentTimeMillis() - timeStart}")
+        //println("${Coroutines.d1(timeStart).await() + Coroutines.d2(timeStart).await()} ${System.currentTimeMillis() - timeStart}")
         //def1.await()
         //def2.await()
 

@@ -11,7 +11,7 @@
 //sha1和md5都是不可逆向的把数据转换成十六进制码,可用于校验数据是否匹配
 //ByteString中提供了方法可以将base64解码或将数据转换成以上的形式"*/
 //
-//fun leetcode.main() {
+//fun leetcode.Coroutines.main() {
 //    val str = "this is a string"
 //    println(str.length)
 //    val byteString= encodeUtf8(str)

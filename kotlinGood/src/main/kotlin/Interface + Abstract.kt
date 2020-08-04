@@ -45,7 +45,7 @@ fun main(args: Array<String>) {
     computer.addInputDevice(mouse)
     //静态函数
     var abc = minOf(4,5)
-    var list:List<Int> = arrayListOf(1,3,4,5,6)
+    var list = mutableListOf(1,3,4,5,6)
     var b = listOf<Int>(1234)
     val list2 = ArrayList<Int>()
     list2.add(2,3)
