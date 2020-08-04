@@ -21,6 +21,7 @@
         app:navGraph="@navigation/nav_graph"/>
 
     <TextView
+        android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Hello World!"
@@ -28,5 +29,16 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/globalTransButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="globalTransbutton"
+        app:layout_constraintBottom_toTopOf="@+id/textView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/nav_host_fragment" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

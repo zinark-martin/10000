@@ -8,12 +8,12 @@ apply plugin: 'kotlin-kapt'
 
 android {
 
-    compileSdkVersion 'R'
-    buildToolsVersion '30.0.0 rc2'
+    compileSdkVersion 29
+    buildToolsVersion '29.0.2'
 
     defaultConfig {
         applicationId "com.example.viewmodeltest"
-        minSdkVersion 24
+        minSdkVersion 26
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
@@ -31,7 +31,7 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-    compileSdkVersion 'android-R'
+    compileSdkVersion 29
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
@@ -52,6 +52,7 @@ dependencies {
     implementation 'androidx.room:room-runtime:2.2.5'
     implementation 'androidx.work:work-runtime:2.3.4'
     implementation 'com.squareup.okio:okio:2.5.0'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     kapt "androidx.room:room-compiler:2.2.5"
     testImplementation 'junit:junit:4.13'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'

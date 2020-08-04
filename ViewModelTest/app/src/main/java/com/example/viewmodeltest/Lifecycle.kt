@@ -1,12 +1,11 @@
 package com.example.viewmodeltest
 
-import android.os.Bundle
 import android.util.Log
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleObserver
 import androidx.lifecycle.OnLifecycleEvent
 
-class MyObserver(val lifecycle: Lifecycle) : LifecycleObserver {
+class MyLifecycleObserver(val lifecycle: Lifecycle) : LifecycleObserver {
     //注意使用了标签和枚举
     @OnLifecycleEvent(Lifecycle.Event.ON_START)
     fun activityStart() {

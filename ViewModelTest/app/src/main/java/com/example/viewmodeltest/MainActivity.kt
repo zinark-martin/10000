@@ -1,26 +1,32 @@
 package com.example.viewmodeltest
 
+import android.app.PendingIntent
 import android.content.Context
+import android.content.Intent
 import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import androidx.core.content.edit
+import androidx.lifecycle.Lifecycle
 import kotlinx.android.synthetic.main.activity_main.*
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.work.OneTimeWorkRequest
 import androidx.work.WorkManager
+import kotlinx.coroutines.CoroutineScope
 import java.util.concurrent.TimeUnit
 import kotlin.concurrent.thread
+import kotlin.coroutines.CoroutineContext
 
-class MainActivity : AppCompatActivity() {
+class MainActivity(override val coroutineContext: CoroutineContext) : AppCompatActivity() ,CoroutineScope{
 
     private lateinit var mainViewModel:MainViewModel
     private lateinit var sp:SharedPreferences
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
+
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         val userDao = AppDatabase.getDatabase(this).userDao()
@@ -32,6 +38,7 @@ class MainActivity : AppCompatActivity() {
                 user2.id = userDao.insertUser(user2)
             }
         }
+        BlankFragment().arguments = Bundle().apply { putChar("key", 'c') }
         updateDataBtn.setOnClickListener {
 //            thread (false, true, null,"", -1,{user1.age = 32
 //                    userDao.updateUser(user1)})
@@ -39,6 +46,7 @@ class MainActivity : AppCompatActivity() {
             thread {
                 user1.age = 32
                 userDao.updateUser(user1)
+
             }
         }
         deleteDataBtn.setOnClickListener {
@@ -59,11 +67,15 @@ class MainActivity : AppCompatActivity() {
 
 
         //一行代码感知生命周期(主动)
-        lifecycle.addObserver(MyObserver(lifecycle))
+        lifecycle.addObserver(MyLifecycleObserver(lifecycle))
+
 
         sp = getPreferences(Context.MODE_PRIVATE)
-        val countReserved = sp.getInt("countReserved",0)
-        mainViewModel = ViewModelProvider(this,MainViewModelFactory(countReserved)).get(MainViewModel::class.java)
+        val countReserved = sp.getInt("countReserved", 0)
+        mainViewModel = ViewModelProvider(
+            this,
+            MainViewModelFactory(countReserved)
+        ).get(MainViewModel::class.java)
         //refreshCounter() 实现观察后这些更改UI的调用函数都不需要了
         plus.setOnClickListener {
             mainViewModel.plusOne()
@@ -80,7 +92,7 @@ class MainActivity : AppCompatActivity() {
         //LiveData对象可以在调用这个方法来观察数据的变化, 实现实时数据传递
         mainViewModel.counter.observe(this, Observer { count ->
             counting.text = count.toString()
-        }) 
+        })
         //Observer可以不写, block可以挪到括号外面
         mainViewModel.user.observe(this) { user ->
             val text = user.firstName + ": ${user.lastName}" + " age: ${user.age}"
@@ -95,8 +107,9 @@ class MainActivity : AppCompatActivity() {
             putInt("countReserved", mainViewModel.counter.value ?: 0)
         }
     }
-
-    private fun refreshCounter() {
+    val pi = PendingIntent.getActivity(this, 0, Intent(this,BlankFragment::class.java)
+    , PendingIntent.FLAG_CANCEL_CURRENT)
+    private fun refresh_counter() {
         counting.text = mainViewModel.counter.value.toString()
     }
 }

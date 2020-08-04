@@ -19,6 +19,11 @@
         <action
             android:id="@+id/action_mainFragment_to_secondActivity2"
             app:destination="@id/secondActivity2" />
+        <argument
+            android:name="name"
+            app:argType="string"
+            app:nullable="false"
+            android:defaultValue="爸爸" />
     </fragment>
 
     <fragment
@@ -32,21 +37,32 @@
     </fragment>
 
     <fragment
-        android:id="@+id/thirdFragment"
-        android:name="com.example.navgtvpager.ThirdFragment"
-        android:label="fragment_third"
-        tools:layout="@layout/fragment_third" />
-
-    <fragment
         android:id="@+id/placeholder" >
         <action
             android:id="@+id/action_placeholder_to_thirdFragment"
             app:destination="@id/thirdFragment" />
     </fragment>
+
     <activity
         android:id="@+id/secondActivity2"
         android:name="com.example.navgtvpager.SecondActivity"
         android:label="activity_second"
         tools:layout="@layout/activity_second" />
+
+    <fragment
+        android:id="@+id/thirdFragment"
+        android:name="com.example.navgtvpager.ThirdFragment"
+        android:label="fragment_third"
+        tools:layout="@layout/fragment_third" >
+        <action
+            android:id="@+id/action_thirdFragment_to_mainFragment"
+            app:destination="@id/mainFragment"
+            app:popUpToInclusive="true"
+            app:popUpTo="@id/mainFragment" />
+    </fragment>
+<!--您可以使用全局操作来创建多个目的地可以使用的常见操作。例如，您可能想要在不同的目的地中使用能够导航到同一应用主屏幕的按钮。-->
+    <action
+        android:id="@+id/action_global_mainFragment"
+        app:destination="@id/mainFragment"/>
 
 </navigation>
