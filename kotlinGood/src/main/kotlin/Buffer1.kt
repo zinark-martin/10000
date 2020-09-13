@@ -1,16 +1,18 @@
 
 import okio.BufferedSink
-import okio.Okio.*
+
+import okio.buffer
+import okio.sink
+import okio.source
 import java.io.File
-import java.io.IOException
 
 object BufferTest2 {
     /* 水，从 “源” 流向 “水池” */
     fun main(args: Array<String>) {
         //(我们要 BufferedSink/BufferSource)
-        val sink: BufferedSink = buffer(sink(File("out.txt"))) //数据接收方
+        val sink: BufferedSink = File("out.txt").sink().buffer() //数据接收方
         //数据供应方
-        val source = buffer(source(File("in.txt"))).apply {
+        val source = File("in.txt").source().buffer().apply {
           readAll(sink)
         }//完成读写, 比起刚才的更简洁一些
         source.close()
