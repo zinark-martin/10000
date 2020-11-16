@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/notesFragment">
+<!--对于details和AddNotes两个Fragment, 我们不希望将他放入返回栈中, 所以使用popUpTo
+导航图中的箭头也会取消-->
+    <fragment
+        android:id="@+id/notesFragment"
+        android:name="com.example.quicknote.AddNotes.Notes.NotesFragment"
+        android:label="Let's take notes!"
+        tools:layout="@layout/notes_fragment">
+        <action
+            android:id="@+id/action_notesFragment_to_addNotesFragment"
+            app:destination="@id/addNotesFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            />
+        <action
+            android:id="@+id/action_notesFragment_to_notesDetailsFragment"
+            app:destination="@id/notesDetailsFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            />
+    </fragment>
+
+    <fragment
+        android:id="@+id/addNotesFragment"
+        android:name="com.example.quicknote.AddNotes.AddNotesFragment"
+        android:label="新建笔记"
+        tools:layout="@layout/add_notes_fragment">
+        <action
+            android:id="@+id/action_addNotesFragment_to_notesFragment"
+            app:popUpTo="@id/notesFragment"
+            app:popUpToInclusive="true"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@android:anim/fade_out"
+            />
+    </fragment>
+
+    <fragment
+        android:id="@+id/notesDetailsFragment"
+        android:name="com.example.quicknote.AddNotes.NotesDetails.NotesDetailsFragment"
+        android:label="修改笔记"
+        tools:layout="@layout/fragment_notes_details">
+        <action
+            android:id="@+id/action_notesDetailsFragment_to_notesFragment"
+            app:popUpTo="@id/notesFragment"
+            app:popUpToInclusive="true"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@android:anim/fade_out"
+            />
+        <argument
+            android:name="notes"
+            app:argType="com.example.quicknote.Model.Notes" />
+    </fragment>
+
+</navigation>

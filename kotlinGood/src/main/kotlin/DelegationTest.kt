@@ -2,8 +2,8 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.withContext
 import kotlin.reflect.KProperty
-
-class myContainer(val helper: Set<Int>) : Set<Int> {
+//委托类与委托属性
+class myContainer(private val helper: Set<Int>) : HashSet<Int>() {
     override val size: Int
         get() = helper.size
 
@@ -15,10 +15,6 @@ class myContainer(val helper: Set<Int>) : Set<Int> {
     }
 
     override fun isEmpty(): Boolean {
-        TODO("Not yet implemented")
-    }
-
-    override fun iterator(): Iterator<Int> {
         TODO("Not yet implemented")
     }
 

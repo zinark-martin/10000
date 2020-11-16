@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Quick Note</string>
+
+    <string name="hello_blank_fragment">空白页</string>
+    <string name="title_hint">标题</string>
+    <string name="desc_hint">正文</string>
+    <string name="update_notes_btn">保存修改</string>
+    <string name="save_notes_btn">保存笔记</string>
+    <string name="desc_text">测试文本</string>
+</resources>

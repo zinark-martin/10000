@@ -1,5 +1,7 @@
+import leetcode.字节跳动题库.Node;
+
 import java.util.LinkedList;
-import java.util.List;
+
 /**
  * title:给定整数n, 完成建立所有从1到n的每个数字作为节点构成的二叉搜索树
  * keys:我们从序列 1 ..n 中取出数字 i，作为当前树的树根。
@@ -14,6 +16,7 @@ class TreeNode {
         i = x;
     }
 }
+
 class Solution {
     public LinkedList<TreeNode> getTree(int start, int end) {
         LinkedList<TreeNode> ans = new LinkedList<TreeNode>();
@@ -48,5 +51,4 @@ class Solution {
         return ans;
     }
 }
-
 

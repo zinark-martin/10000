@@ -35,23 +35,23 @@ class MessageFragment:Fragment() {
         viewPager.apply {
             adapter = secondAdapter
             offscreenPageLimit = 1
-//            addOnPageChangeListener(object : ViewPager.OnPageChangeListener{
-//                override fun onPageScrollStateChanged(state: Int) {
-//                    //看源码文档
-//                }
-//
-//                override fun onPageScrolled(
-//                    position: Int,
-//                    positionOffset: Float,
-//                    positionOffsetPixels: Int
-//                ) {
-//                    //同上 :)
-//                }
-//
-//                override fun onPageSelected(position: Int) {
-//                }
-//
-//            })
+            addOnPageChangeListener(object : ViewPager.OnPageChangeListener{
+                override fun onPageScrollStateChanged(state: Int) {
+                    //看源码文档
+                }
+
+                override fun onPageScrolled(
+                    position: Int,
+                    positionOffset: Float,
+                    positionOffsetPixels: Int
+                ) {
+                    //同上 :)
+                }
+
+                override fun onPageSelected(position: Int) {
+                }
+
+            })
         }
         tabLayout.apply {
             setupWithViewPager(viewPager)

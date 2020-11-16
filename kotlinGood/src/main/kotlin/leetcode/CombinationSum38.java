@@ -1,4 +1,5 @@
 package leetcode;
+import	java.util.List;
 
 import java.lang.reflect.Array;
 import java.util.*;
@@ -33,13 +34,12 @@ class Solution38 {
         }
     }
 
-    public void rotate(int[][] matrix) {
-        int[][] matrix1 = matrix;
-        int n = matrix1.length;
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j < n; j++) {
-                matrix[i][j] = matrix1[n - 1][j];
-            }
-        }
-    }
+//
+//    public void rotate(int[][] matrix) {
+//        int n = matrix.length;
+//        for (int[] ints : matrix) {
+//            System.arraycopy(matrix[n - 1], 0, ints, 0, n);
+//        }
+//    }
+//
 }

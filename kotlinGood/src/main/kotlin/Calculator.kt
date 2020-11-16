@@ -55,10 +55,8 @@ class Calculator(op: String1) {
             "%" -> {l,r -> l % r}
             else -> throw UnsupportedOperationException("符号 $op 超出运算支持范围")
         }
-        opFun2 = if (true) {
+        opFun2 = run {
             {x -> x + 2}
-        } else {
-            {7}
         }
     }
     //println("$arg1 $op $arg2 = ${Calculator(op).opFun(arg1, arg2)}") 使用".opFun"时可以不用以下内容

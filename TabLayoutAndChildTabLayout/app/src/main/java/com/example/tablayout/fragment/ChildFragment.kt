@@ -32,8 +32,3 @@ class ChildFragment:Fragment() {
         textView.text = arguments?.getString("title")
     }
 }
-class mthrea() : Runnable {
-    override fun run() {
-    }
-
-}
